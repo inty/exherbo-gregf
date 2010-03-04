@@ -1,0 +1,26 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+
+require distutils
+
+SUMMARY="Python wrapper for libmad MP3 decoding in python"
+HOMEPAGE="http://www.spacepants.org/src/pymad/"
+DOWNLOADS="http://www.spacepants.org/src/pymad/download/${PNV}.tar.gz"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        media-libs/libmad 
+"
+
+BUGS_TO="netzdamon@gmail.com"
+
+src_compile() {
+	./config_unix.py --prefix /usr || die
+	distutils_src_compile
+}
