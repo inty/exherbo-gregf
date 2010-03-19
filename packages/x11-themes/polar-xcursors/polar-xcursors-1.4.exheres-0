@@ -1,0 +1,28 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+
+MY_P="27913-PolarCursorThemes"
+SUMMARY="A smooth white cursor theme."
+HOMEPAGE="http://kde-look.org/content/show.php?content=27913"
+DOWNLOADS="http://www.kde-look.org/CONTENT/content-files/${MY_P}.tar.bz2"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
+MYOPTIONS=""
+
+DEPENDENCIES=""
+
+BUGS_TO="netzdamon@gmail.com"
+
+WORK="${WORKBASE}/PolarCursorTheme"
+
+src_install() {
+	dodir /usr/share/icons/PolarCursorTheme/cursors/
+	cp -R  ${WORKBASE}/PolarCursorTheme/cursors ${IMAGE}/usr/share/icons/PolarCursorTheme/ || die
+	dodir /usr/share/icons/PolarCursorTheme-Blue/cursors/
+	cp -R  ${WORKBASE}/PolarCursorTheme-Blue/cursors ${IMAGE}/usr/share/icons/PolarCursorTheme-Blue/ || die
+	dodir /usr/share/icons/PolarCursorTheme-Green/cursors/
+	cp -R ${WORKBASE}/PolarCursorTheme-Green/cursors ${IMAGE}/usr/share/icons/PolarCursorTheme-Green/ || die
+}
