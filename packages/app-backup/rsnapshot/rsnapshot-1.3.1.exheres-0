@@ -38,21 +38,21 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
 src_install() {
     default
 
-	dodoc INSTALL README ChangeLog docs/*
-	insinto /usr/share/doc/${PNVR}/HOWTOs
-	doins docs/HOWTOs/*
-	docinto utils
-	dodoc utils/{README,rsnaptar,*.sh}
-	docinto utils/rsnapshotdb
-	dodoc utils/rsnapshotdb/*
+    dodoc INSTALL README ChangeLog docs/*
+    insinto /usr/share/doc/${PNVR}/HOWTOs
+    doins docs/HOWTOs/*
+    docinto utils
+    dodoc utils/{README,rsnaptar,*.sh}
+    docinto utils/rsnapshotdb
+    dodoc utils/rsnapshotdb/*
 }
 
 pkg_postinst() {
-	elog
-	elog "The configuration file: /etc/rsnapshot.conf.default "
-	elog "  has been installed. "
-	elog "This is a template. "
-	elog "Copy, or move, the above file to: /etc/rsnapshot.conf "
-	elog "Note that upgrading will update the template, not real config. "
-	elog
+    elog
+    elog "The configuration file: /etc/rsnapshot.conf.default "
+    elog "  has been installed. "
+    elog "This is a template. "
+    elog "Copy, or move, the above file to: /etc/rsnapshot.conf "
+    elog "Note that upgrading will update the template, not real config. "
+    elog
 }
