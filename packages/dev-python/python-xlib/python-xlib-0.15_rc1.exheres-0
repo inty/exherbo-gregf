@@ -1,0 +1,26 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'python-xlib-0.15_rc1.ebuild' from Gentoo, which is:
+#     Copyright 1999-2010 Gentoo Foundation
+
+require distutils [ python_dep=2.4 ] 
+
+MY_PNV=${PNV/_/}
+WORK=${WORKBASE}/${MY_PNV}
+
+SUMMARY="A fully functional X client library for Python, written in Python"
+HOMEPAGE="http://python-xlib.sourceforge.net/"
+DOWNLOADS="mirror://sourceforge/${PN}/${MY_PNV}.tar.gz"
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
+DEPENDENCIES=""
+
+BUGS_TO="netzdamon@gmail.com"
+
+src_test() { 
+    for pytest in $(ls test/*py); do
+        PYTHONPATH=. "${PYTHON}" ${pytest} || die "test failed"
+    done
+} 
