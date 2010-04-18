@@ -29,7 +29,7 @@ DEPENDENCIES="
         media-sound/vorbis-tools
         dev-python/pymad
         gnome-bindings/gnome-python-extras[gtkhtml]
-        dev-python/mygpoclient	
+        dev-python/mygpoclient[=1.1]
         dev-python/eyeD3
 "
 
