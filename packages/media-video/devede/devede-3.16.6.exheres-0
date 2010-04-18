@@ -21,7 +21,10 @@ DEPENDENCIES="
         media-libs/vcdimager
         media/dvdauthor
         psyco? ( dev-python/psyco )
-        app-cdr/cdrtools
+        || (
+            app-cdr/cdrtools
+            app-cdr/cdrkit
+        )
         media/mplayer[>=1.0_rc1][aac][xvid][mp2][mp3][h264]
 
 "
