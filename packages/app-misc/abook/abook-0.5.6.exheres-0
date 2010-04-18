@@ -1,0 +1,29 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GPLv2
+
+SUMMARY="Abook is a text-based addressbook program designed to use with mutt mail client."
+HOMEPAGE="http://abook.sourceforge.net/"
+DOWNLOADS="mirror://sourceforge/abook/${PNVR}.tar.gz"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        sys-devel/gettext
+    build+run:
+        sys-libs/ncurses
+        sys-libs/readline
+"
+
+BUGS_TO="netzdamon@gmail.com"
+
+UPSTREAM_CHANGELOG="http://abook.cvs.sourceforge.net/viewvc/*checkout*/abook/abook/ChangeLog?content-type=text%2Fplain&revision=HEAD [[ lang = en ]]"
+REMOTE_IDS="freshmeat:abook sourceforge:abook"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --enable-nls
+    --hates=docdir
+)
