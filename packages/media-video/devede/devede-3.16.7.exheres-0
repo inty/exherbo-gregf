@@ -1,0 +1,46 @@
+# Copyright 2010 Greg Fitzgerald 
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'devede-3.15.2.ebuild' from Gentoo, which is:
+#     Copyright 1999-2010 Gentoo Foundation
+
+require python [ python_dep=2.4 ] multilib 
+
+SUMMARY="Program to create video CDs and DVDs, suitable to be played in home DVD players."
+HOMEPAGE="http://www.rastersoft.com/programas/devede.html"
+DOWNLOADS="http://www.rastersoft.com/descargas/${PNV}.tar.bz2"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS="psyco"
+
+DEPENDENCIES="
+    build+run:
+        x11-libs/gtk+[>=2.16]
+        gnome-bindings/pygtk
+        media-libs/vcdimager
+        media/dvdauthor
+        psyco? ( dev-python/psyco )
+        || (
+            app-cdr/cdrtools
+            app-cdr/cdrkit
+        )
+        media/mplayer[>=1.0_rc1][aac][xvid][mp2][mp3][h264]
+
+"
+
+BUGS_TO="netzdamon@gmail.com"
+UPSTREAM_CHANGELOG="${HOMEPAGE}#history"
+
+src_install() {
+    ./install.sh prefix="/usr" libdir="/usr/$(get_libdir)" \
+        pkgdocdir="/usr/share/doc/${PNVR}" DESTDIR="${IMAGE}" \
+        || die "install.sh failed."
+    
+    rm -rf "${IMAGE}"/usr/share/pixmaps/backgrounds/ || die "Removing backgrounds directory"
+}
+
+pkg_postinst() {
+    elog "To change the font used to render the subtitles, choose a TrueType font you like"
+    elog "and copy it in \$HOME/.spumux directory, renaming it to devedesans.ttf."
+}
