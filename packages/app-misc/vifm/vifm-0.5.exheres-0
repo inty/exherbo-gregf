@@ -1,0 +1,21 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GPLv2
+
+SUMMARY="Vifm is a ncurses based file manager with vi like keybindings."
+HOMEPAGE="http://vifm.sourceforge.net/"
+DOWNLOADS="mirror://sourceforge/vifm/${PNVR}.tar.bz2"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        sys-libs/ncurses
+"
+
+BUGS_TO="netzdamon@gmail.com"
+
+UPSTREAM_CHANGELOG="http://abook.cvs.sourceforge.net/viewvc/*checkout*/abook/abook/ChangeLog?content-type=text%2Fplain&revision=HEAD [[ lang = en ]]"
+REMOTE_IDS="freshmeat:vifm sourceforge:vifm"
