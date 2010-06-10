@@ -36,7 +36,7 @@ src_install() {
     ./install.sh prefix="/usr" libdir="/usr/$(get_libdir)" \
         pkgdocdir="/usr/share/doc/${PNVR}" DESTDIR="${IMAGE}" \
         || die "install.sh failed."
-    
+
     rm -rf "${IMAGE}"/usr/share/pixmaps/backgrounds/ || die "Removing backgrounds directory"
 }
 
