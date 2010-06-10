@@ -45,7 +45,7 @@ DEPENDENCIES="
 RESTRICT="test"
 
 BUGS_TO="netzdamon@gmail.com"
-REMOTE_IDS="freshmeat: gpodder"
+REMOTE_IDS="freshmeat:gpodder"
 UPSTREAM_CHANGELOG="http://gpodder.org/news.html [[ lang = en ]]"
 
 src_compile() {

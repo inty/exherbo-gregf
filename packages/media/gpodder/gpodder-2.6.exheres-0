@@ -6,7 +6,7 @@ require distutils
 SUMMARY="gPodder is a Podcast receiver/catcher written in Python, using GTK."
 HOMEPAGE="http://gpodder.org/"
 DOWNLOADS="mirror://berlios/${PN}/${PNV}.tar.gz"
- 
+
 LICENCES="GPL-2"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
@@ -45,7 +45,7 @@ DEPENDENCIES="
 RESTRICT="test"
 
 BUGS_TO="netzdamon@gmail.com"
-REMOTE_IDS="freshmeat: gpodder"
+REMOTE_IDS="freshmeat:gpodder"
 UPSTREAM_CHANGELOG="http://gpodder.org/news.html [[ lang = en ]]"
 
 src_compile() {
