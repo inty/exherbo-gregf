@@ -12,7 +12,7 @@ DOWNLOADS="http://www.rastersoft.com/descargas/${PNV}.tar.bz2"
 LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
-MYOPTIONS="psyco"
+MYOPTIONS="platform: x86"
 
 DEPENDENCIES="
     build+run:
@@ -20,12 +20,13 @@ DEPENDENCIES="
         gnome-bindings/pygtk
         media-libs/vcdimager
         media/dvdauthor
-        psyco? ( dev-python/psyco )
         || (
             app-cdr/cdrtools
             app-cdr/cdrkit
         )
         media/mplayer[>=1.0_rc1][aac][xvid][mp2][mp3][h264]
+    suggestion:
+        platform:x86? ( dev-python/psyco  [[ description = [ Performance Gains ] ]] )
 
 "
 
