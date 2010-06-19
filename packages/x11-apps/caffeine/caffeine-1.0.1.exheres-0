@@ -20,7 +20,7 @@ DEPENDENCIES="
         gnome-bindings/gnome-python[gconf]
     build+run:
         dev-python/dbus-python
-        x11-libs/pygtk:2
+        gnome-bindings/pygtk:2
         dev-python/dbus-python
         dev-python/notify-python
         dev-python/python-xlib
