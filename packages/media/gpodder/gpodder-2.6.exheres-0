@@ -10,7 +10,7 @@ DOWNLOADS="mirror://berlios/${PN}/${PNV}.tar.gz"
 LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
-MYOPTIONS="libnotify dbus ipod rockbox bluetooth mtp ogg ipod [[ requires = mad ]]"
+MYOPTIONS="libnotify dbus rockbox bluetooth mtp ogg mad ipod [[ requires = mad ]]"
 
 DEPENDENCIES="
     build:
