@@ -10,7 +10,7 @@ DOWNLOADS="mirror://berlios/${PN}/${PNV}.tar.gz"
 LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
-MYOPTIONS="libnotify dbus ipod rockbox bluetooth mtp ogg mad [[ requires = ipod ]]"
+MYOPTIONS="libnotify dbus ipod rockbox bluetooth mtp ogg ipod [[ requires = mad ]]"
 
 DEPENDENCIES="
     build:
@@ -24,9 +24,9 @@ DEPENDENCIES="
         libnotify? ( dev-python/notify-python )
         dev-lang/python[sqlite]
         dbus? ( dev-python/dbus-python )
-        ipod? ( media-libs/libgpod
-          || ( mad? ( dev-python/pymad )
-                      dev-python/eyeD3 ) )
+        ipod? ( media-libs/libgpod )
+        mad? ( dev-python/pymad 
+               dev-python/eyeD3 )
         bluetooth? ( gnome-desktop/gnome-bluetooth )
         rockbox? ( dev-python/Imaging )
         mtp? ( dev-python/pymtp )
