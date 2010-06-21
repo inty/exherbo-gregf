@@ -3,7 +3,7 @@
 
 require distutils [ python_dep=2.6 ]
 
-SUMMARY="The mygpoclient library allows developers to utilize a Pythonic interface to the my.gpodder.org web services."
+SUMMARY="Pythonic interface to the gpodder.net web services."
 HOMEPAGE="http://thpinfo.com/2010/mygpoclient/"
 DOWNLOADS="http://thpinfo.com/2010/${PN}/${PNV}.tar.gz"
 
@@ -19,7 +19,4 @@ DEPENDENCIES="
 	build+run:
 		dev-python/simplejson
 "
-
-RESTRICT="test"
-
 BUGS_TO="netzdamon@gmail.com"
