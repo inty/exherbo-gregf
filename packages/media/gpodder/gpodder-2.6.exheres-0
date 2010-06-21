@@ -1,16 +1,16 @@
 # Copyright 2010 Greg Fitzgerald
 # Distributed under the terms of the GNU General Public License v2
 
-require distutils
+require distutils [ python_dep=2.5 ]
 
 SUMMARY="gPodder is a Podcast receiver/catcher written in Python, using GTK."
 HOMEPAGE="http://gpodder.org/"
 DOWNLOADS="mirror://berlios/${PN}/${PNV}.tar.gz"
 
-LICENCES="GPL-2"
+LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
-MYOPTIONS="libnotify dbus ipod rockbox bluetooth mtp mad [[ requires = ipod ]]"
+MYOPTIONS="libnotify dbus ipod rockbox bluetooth mtp ogg mad [[ requires = ipod ]]"
 
 DEPENDENCIES="
     build:
@@ -22,24 +22,17 @@ DEPENDENCIES="
         gnome-bindings/pygtk
         sys-devel/gettext
         libnotify? ( dev-python/notify-python )
-        || (
-            dev-lang/python[>=2.5][sqlite]
-            dev-python/pysqlite
-        )
+        dev-lang/python[sqlite]
         dbus? ( dev-python/dbus-python )
-        ipod? ( media-libs/libgpod )
-        mad? (
-            || (
-                dev-python/pymad
-                dev-python/eyeD3
-            )
-        )
-        bluetooth? ( dev-python/PyBluez )
+        ipod? ( media-libs/libgpod
+          || ( mad? ( dev-python/pymad )
+                      dev-python/eyeD3 ) )
+        bluetooth? ( gnome-desktop/gnome-bluetooth )
         rockbox? ( dev-python/Imaging )
         mtp? ( dev-python/pymtp )
-        media-sound/vorbis-tools
+        ogg? ( media-sound/vorbis-tools )
         gnome-bindings/gnome-python-extras[gtkhtml]
-        dev-python/mygpoclient[>=1.2]
+        dev-python/mygpoclient
 "
 
 RESTRICT="test"
@@ -48,6 +41,7 @@ BUGS_TO="netzdamon@gmail.com"
 REMOTE_IDS="freshmeat:gpodder"
 UPSTREAM_CHANGELOG="http://gpodder.org/news.html [[ lang = en ]]"
 
-src_compile() {
-    emake messages data/org.gpodder.service
+src_prepare() {
+    emake -C data/po
+    emake data/org.gpodder.service
 }
