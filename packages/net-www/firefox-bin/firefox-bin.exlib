@@ -1,0 +1,33 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="Mozilla Firefox Browser"
+HOMEPAGE="http://www.mozilla.com/eo/"
+DOWNLOADS="http://download.mozilla.org/?product=firefox-${PV}&os=linux -> ${PNV}.tar.bz2"
+
+LICENCES="MPL-1.1"
+SLOT="0"
+MYOPTIONS="platform: x86 amd64"
+
+DEPENDENCIES="
+    run:
+        x11-libs/gtk+:2[multibuild_c:*(?)?]
+        x11-libs/pango[multibuild_c:*(?)?]
+        x11-libs/cairo[multibuild_c:*(?)?]
+        sys-sound/alsa-lib[multibuild_c:*(?)?]
+        x11-libs/libXrender[multibuild_c:*(?)?]
+        x11-libs/libXmu[multibuild_c:*(?)?]
+        x11-libs/libXt[multibuild_c:*(?)?]
+"
+
+WORK="${WORKBASE}"
+
+RESTRICT="strip"
+
+src_install()
+{
+    edo install -d "${IMAGE}/opt"
+    edo cp -rf firefox "${IMAGE}/opt/firefox-bin"
+
+    dobin "${FILES}/firefox-bin"
+}

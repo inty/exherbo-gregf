@@ -1,0 +1,6 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+
+require firefox-bin
+
+PLATFORMS="~amd64"

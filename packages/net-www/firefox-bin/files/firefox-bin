@@ -1,0 +1,5 @@
+#!/bin/sh
+
+unset LD_PRELOAD
+LD_LIBRARY_PATH="/opt/firefox-bin/"
+exec /opt/firefox-bin/firefox ${1+"$@"}
