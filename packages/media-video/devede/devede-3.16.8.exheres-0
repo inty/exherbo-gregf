@@ -3,7 +3,7 @@
 # Based in part upon 'devede-3.15.2.ebuild' from Gentoo, which is:
 #     Copyright 1999-2010 Gentoo Foundation
 
-require python [ python_dep=2.4 ] multilib 
+require python [ python_dep=2.4 ]
 
 SUMMARY="Program to create video CDs and DVDs, suitable to be played in home DVD players."
 HOMEPAGE="http://www.rastersoft.com/programas/devede.html"
