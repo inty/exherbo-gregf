@@ -1,6 +1,7 @@
 # Copyright 2009 Hong Hao <oahong@gmail.com>
 # Copyright 2010 Greg Fitzgerald 
 # Distributed under the terms of the GNU General Public License v2
+
 require python [ has_lib=false ]
 
 SUMMARY="Gtk Absolute Jabber Instant Messenger"
