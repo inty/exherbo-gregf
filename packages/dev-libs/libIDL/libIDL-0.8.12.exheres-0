@@ -1,0 +1,21 @@
+# Copyright (C) 2008 Stephen Bennett <spb@exherbo.org>
+# Distributed under the terms of the GNU General Public Licence v2
+
+require gnome.org easy-multibuild
+
+SUMMARY="IDL parsing and compilation library"
+HOMEPAGE="http://andrewtv.org/libIDL"
+
+LICENCES="GPL-2"
+SLOT="2"
+PLATFORMS="~amd64 ~ppc64 ~x86"
+MYOPTIONS="multibuild_c: 32 64"
+
+DEPENDENCIES="
+    build:
+        dev-util/pkg-config
+        sys-devel/bison
+        sys-devel/flex
+    build+run:
+        dev-libs/glib:2[>=2.4.0][multibuild_c:*(?)?]"
+
