@@ -1,0 +1,38 @@
+# Copyright 2010 Saleem Abdulrasool <compnerd@compnerd.org>
+# Distributed under the terms of the GNU General Purpose License v2
+
+require gnome.org easy-multibuild
+
+
+SUMMARY="SVG parsing library"
+HOMEPAGE="http://www.gnome.org/"
+
+LICENCES="LGPL-2"
+SLOT="2"
+
+export_exlib_phases src_install pkg_postinst pkg_postrm
+
+src_install() {
+    easy-multibuild_src_install
+
+    if ! ever at_least 2.26.1 ; then
+        edo rmdir "${IMAGE}"/usr/$(get_libdir)/mozilla/{plugins,}
+    fi
+}
+
+pkg_postinst() {
+    echo "Generating pixbuf list ..."
+
+    echo "gdk-pixbuf-query-loaders > /etc/gtk-2.0/gdk-pixbuf.loaders"
+    gdk-pixbuf-query-loaders > "${ROOT}/etc/gtk-2.0/gdk-pixbuf.loaders" ||
+        eerror "failed to update pixbuf loaders"
+}
+
+pkg_postrm() {
+    echo "Generating pixbuf list ..."
+
+    echo "gdk-pixbuf-query-loaders > /etc/gtk-2.0/gdk-pixbuf.loaders"
+    gdk-pixbuf-query-loaders > "${ROOT}/etc/gtk-2.0/gdk-pixbuf.loaders" ||
+        eerror "failed to update pixbuf loaders"
+}
+
