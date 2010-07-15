@@ -1,0 +1,46 @@
+# Copyright 2010 Greg Fitzgerald 
+# Distributed under the terms of the GNU General Public License v2
+
+require multilib cmake [[ cmake_minimum_version="2.8" ]]
+
+MY_PNV=${PNV/f/F}
+SLOT="0"
+
+SUMMARY="...an Open Source, simple, fast and powerful programming language."
+DESCRIPTION="...an Open Source, simple, fast and powerful programming language, easy to learn and to
+feel comfortable with, and a scripting engine ready to empower mission-critical multithreaded
+applications
+
+Falcon provides six integrated programming paradigms: procedural, object oriented, prototype
+oriented, functional, tabular and message oriented. And you don't have to master all of them; you
+just need to pick the ingredients you prefer, and let the code to follow your inspiration."
+HOMEPAGE="http://www.falconpl.org"
+DOWNLOADS="${HOMEPAGE}/project_dl/_official_rel/${MY_PNV}.tar.gz"
+
+MYOPTIONS="readline debug"
+
+BUGS_TO="netzdamon@gmail.com"
+
+REMOTE_IDS="freshmeat:${PN}"
+
+UPSTREAM_CHANGELOG="${HOMEPAGE}/popup_show_changelog.ftd?rel_id=77"
+UPSTREAM_DOCUMENTATION="${HOMEPAGE}/index.ftd?page_id=manuals"
+
+DEPENDENCIES="
+    build+run:
+        sys-libs/zlib[>=1.1]
+        dev-libs/pcre[>=7.2]
+        readline? ( sys-libs/readline )
+"
+WORK="${WORKBASE}/${MY_PNV}"
+
+CMAKE_SRC_CONFIGURE_PARAMS+=(
+    -DFALCON_LIB_DIR=$(get_libdir)
+    -DFALCON_WITH_INTERNAL_PCRE=OFF
+    -DFALCON_WITH_INTERNAL_ZLIB=OFF
+    -DFALCON_WITH_MANPAGES=ON
+    -DFALCON_SKIP_BISON=ON
+)
+
+CMAKE_SRC_CONFIGURE_OPTION_WITHS+=( READLINE )
+

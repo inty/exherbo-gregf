@@ -1,0 +1,8 @@
+# Copyright 2010 Greg Fitzgerald 
+# Distributed under the terms of the GNU General Public License v2
+
+require falcon
+
+LICENCES="|| ( GPL-2 FPLLv1.1 )"
+PLATFORMS="~amd64 ~x86"
+
