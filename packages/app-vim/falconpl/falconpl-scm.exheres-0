@@ -1,0 +1,14 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+
+require vim-plugin
+
+SUMMARY="This is a syntax highlighting file for the Falcon programming language"
+HOMEPAGE="http://github.com/steveno/falconpl-vim"
+SCM_REPOSITORY="git://github.com/steveno/falconpl-vim.git"
+require scm-git
+
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+SLOT="0"
+
