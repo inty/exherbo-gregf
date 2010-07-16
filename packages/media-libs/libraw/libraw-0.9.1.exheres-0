@@ -1,0 +1,52 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'libraw-0.9.1.ebuild' from Gentoo, which is:
+#     Copyright 2010 Gentoo Foundation
+
+MY_PNV="LibRaw-${PV}"
+
+SUMMARY="LibRaw is a library for reading RAW files obtained from digital photo cameras (CRW/CR2, NEF, RAF, DNG, and others)"
+HOMEPAGE="http://www.libraw.org/"
+DOWNLOADS="${HOMEPAGE}/data/${MY_PNV}.tar.gz"
+
+# Libraw also has it's own license, which is a pdf file and
+# can be obtained from here:
+# http://www.libraw.org/data/LICENSE.LibRaw.pdf
+LICENCES="|| ( LGPL-2.1 CDDL )"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS="lcms openmp examples"
+
+DEPENDENCIES="
+    build+run:
+        lcms? ( media-libs/lcms )
+"
+
+BUGS_TO="netzdamon@gmail.com"
+REMOTE_IDS="freshmeat:${PN}"
+
+WORK="${WORKBASE}/${MY_PNV}"
+
+src_prepare() {
+  sed -i -e "s:/usr/local/:${IMAGE}usr/:g" \
+         -e "/^CFLAGS/ s:-O4:${CFLAGS}:" \
+         Makefile
+
+  if option lcms; then
+    sed -i -r '/^#LCMS/ s!^#!!' Makefile
+  fi
+
+  if option openmp; then
+    sed -i -r '/^CFLAGS/ s!^(.*)$!\1 -fopenmp!' Makefile
+  fi
+}
+
+src_install() {
+  # This makefile doesn't even make the directories..
+  mkdir -p "${IMAGE}usr/include" "${IMAGE}usr/lib" \
+    $(option examples && echo "${IMAGE}/usr/bin")
+
+  emake install \
+    $(option examples && echo "install-binaries")
+}
+
