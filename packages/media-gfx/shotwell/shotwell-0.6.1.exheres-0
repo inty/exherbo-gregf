@@ -1,0 +1,40 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+
+require gnome-2
+
+SUMMARY="Open source photo manager for GNOME"
+HOMEPAGE="http://yorba.org/shotwell/"
+DOWNLOADS="http://yorba.org/download/${PN}/0.6/${PNV}.tar.bz2"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        dev-lang/vala
+    build+run:
+        gnome-desktop/libsoup[>=2.26.0]
+        dev-libs/dbus-glib[>=0.8.0]
+        dev-db/sqlite[>=3.5.9]
+        media-libs/libgphoto2[>=2.4.2]
+        base/libgee[>=0.5.0]
+        x11-libs/gtk+[>=2.18.0]
+        net-libs/webkit-gtk[>=1.1.5]
+        sys-fs/udev[>=145]
+        media-libs/libexif[>=0.6.16]
+        gnome-platform/GConf[>=2.22.0]
+        dev-libs/libxml2[>=2.6.32]
+        dev-libs/unique[>=1.0.0]
+        media-libs/gexiv2[>=0.1.0]
+        media-libs/libraw[>=0.9.1]
+"
+
+BUGS_TO="netzdamon@gmail.com"
+REMOTE_IDS="freshmeat:${PN}"
+UPSTREAM_DOCUMENTATION="http://trac.yorba.org/wiki/UsingShotwell0.6 [[ lang = en description = [
+User Guide ] ]]
+"
+
