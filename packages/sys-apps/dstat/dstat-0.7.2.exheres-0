@@ -1,0 +1,41 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+
+require python [ python_dep=2.4 ]
+
+SUMMARY="Dstat is a versatile replacement for vmstat, iostat, netstat and ifstat."
+DESCRIPTION="
+Dstat is a versatile replacement for vmstat, iostat, netstat and ifstat. Dstat overcomes some of
+their limitations and adds some extra features, more counters and flexibility. Dstat is handy for
+monitoring systems during performance tuning tests, benchmarks or troubleshooting. 
+
+* Combines vmstat, iostat, ifstat, netstat information and more
+* Shows stats in exactly the same timeframe
+* Enable/order counters as they make most sense during analysis/troubleshooting
+* Modular design
+* Written in python so easily extendable for the task at hand
+* Easy to extend, add your own counters (please contribute those)
+* Includes many external plugins to show how easy it is to add counters
+* Can summarize grouped block/network devices and give total numbers
+* Can show interrupts per device
+* Very accurate timeframes, no timeshifts when system is stressed
+* Shows exact units and limits conversion mistakes
+* Indicate different units with different colors
+* Show intermediate results when delay > 1
+* Allows to export CSV output, which can be imported in Gnumeric and Excel to make graphs 
+"
+HOMEPAGE="http://dag.wieers.com/home-made/dstat"
+DOWNLOADS="${HOMEPAGE}/${PNV}.tar.bz2"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        dev-lang/python
+"
+
+BUGS_TO="netzdamon@gmail.com"
+
