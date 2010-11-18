@@ -5,7 +5,7 @@
 
 SUMMARY="A filesystem backup utility based on rsync"
 HOMEPAGE="http://www.rsnapshot.org"
-DOWNLOADS="http://www.rsnapshot.org/downloads/${PNV}.tar.gz"
+DOWNLOADS="${HOMEPAGE}/downloads/${PNV}.tar.gz"
 
 SLOT="0"
 LICENCES="GPL-2"
@@ -22,7 +22,7 @@ DEPENDENCIES="
 "
 
 BUGS_TO="netzdamon@gmail.com"
-REMOTE_IDS="freshmeat:rsnapshot"
+REMOTE_IDS="freshmeat:${PN}"
 UPSTREAM_CHANGELOG="http://rsnapshot.cvs.sourceforge.net/viewvc/*checkout*/rsnapshot/rsnapshot/ChangeLog [[ lang = en ]]"
 UPSTREAM_DOCUMENTATION="
      ${HOMEPAGE}/howto/ [[ lang = en description = [ Step by step guide to setup and  configure rsnapshot. ] ]]
@@ -48,11 +48,9 @@ src_install() {
 }
 
 pkg_postinst() {
-    elog
-    elog "The configuration file: /etc/rsnapshot.conf.default "
-    elog "  has been installed. "
-    elog "This is a template. "
-    elog "Copy, or move, the above file to: /etc/rsnapshot.conf "
-    elog "Note that upgrading will update the template, not real config. "
-    elog
+    default
+
+    elog "I default configuration has been installed to ${ROOT}/etc/rsnapshot.conf.default"
+    elog "This is ment to be copied to ${ROOT}/etc/rsnapshot.conf before editing, and will be"
+    elog "Overwritten during upgrades."
 }
