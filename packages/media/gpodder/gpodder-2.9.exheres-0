@@ -1,7 +1,7 @@
 # Copyright 2010 Greg Fitzgerald
 # Distributed under the terms of the GNU General Public License v2
 
-require distutils [ python_dep=2.5 ]
+require distutils [ python_dep=2.5 ] gnome-2
 
 SUMMARY="gPodder is a Podcast receiver/catcher written in Python, using GTK."
 HOMEPAGE="http://gpodder.org/"
@@ -10,8 +10,14 @@ DOWNLOADS="mirror://berlios/${PN}/${PNV}.tar.gz"
 LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
-MYOPTIONS="libnotify dbus rockbox bluetooth mtp ogg mad ipod [[ requires = mad ]]"
+MYOPTIONS="libnotify dbus bluetooth mtp ogg mad gstreamer
+           ipod [[ requires = mad ]]"
 
+#TODO webkit option
+#webkit: dev-python/pywebkitgtk
+#http://code.google.com/p/pywebkitgtk/
+#TODO Tests
+# minimock and coverage are required for tests.
 DEPENDENCIES="
     build:
         dev-util/intltool
@@ -19,29 +25,42 @@ DEPENDENCIES="
         dev-python/setuptools
     build+run:
         dev-python/feedparser
-        gnome-bindings/pygtk
+        gnome-bindings/pygtk[>=2.12]
         sys-devel/gettext
+        dev-python/Imaging
         libnotify? ( dev-python/notify-python )
+        gstreamer? ( dev-python/gst-python )
         dev-lang/python[sqlite]
         dbus? ( dev-python/dbus-python )
         ipod? ( media-libs/libgpod )
-        mad? ( dev-python/pymad 
+        mad? ( dev-python/pymad
                dev-python/eyeD3 )
         bluetooth? ( gnome-desktop/gnome-bluetooth )
-        rockbox? ( dev-python/Imaging )
         mtp? ( dev-python/pymtp )
         ogg? ( media-sound/vorbis-tools )
         gnome-bindings/gnome-python-extras[gtkhtml]
-        dev-python/mygpoclient
+        dev-python/mygpoclient[>=1.4]
 "
 
 RESTRICT="test"
-
 BUGS_TO="netzdamon@gmail.com"
-REMOTE_IDS="freshmeat:gpodder"
-UPSTREAM_CHANGELOG="http://gpodder.org/news.html [[ lang = en ]]"
+REMOTE_IDS="freshmeat:${PN}"
+UPSTREAM_CHANGELOG="${PN}/news.html [[ lang = en ]]"
 
 src_prepare() {
-    emake -C data/po
+    default
     emake data/org.gpodder.service
+    emake messages
+}
+
+pkg_preinst() {
+    save_icon_index_dirs
+}
+
+pkg_postinst() {
+    gnome_exlib_update_icon_cache
+}
+
+pkg_postrm() {
+    gnome_exlib_update_icon_cache
 }
