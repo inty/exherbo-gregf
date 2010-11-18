@@ -1,0 +1,35 @@
+# Copyright 2010 Greg Fitzgerald
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="Surfraw provides a fast unix command line interface to a variety of popular WWW search
+engines."
+DESCRIPTION="
+Surfraw abstracts the browser away from input. Doing so lets it get on with what it's good at.
+Browsing. Interpretation of linguistic forms is handed back to the shell, which is what it, and
+human beings are good at. Combined with netscape-remote or incremental text browsers, such as lynx,
+links or w3m, along with screen a Surfraw liberateur is capable of navigating speeds that leave GUI
+tainted idolaters agape with fear and wonder.
+"
+HOMEPAGE="http://surfraw.alioth.debian.org"
+DOWNLOADS="${HOMEPAGE}/dist/${PNV}.tar.gz"
+
+LICENCES="public-domain"
+SLOT="0"
+PLATFORMS="~x86 ~amd64"
+
+DEPENDENCIES="
+    build+run:
+        dev-perl/HTML-Parser
+        dev-perl/libwww-perl
+        dev-perl/WWW-OpenSearch
+"
+
+
+BUGS_TO="netzdamon@gmail.com"
+
+UPSTREAM_CHANGELOG="${HOMEPAGE}/#news [[ lang = en ]]"
+UPSTREAM_DOCUMENTATION="
+${HOMEPAGE}/#configuration [[ lang = en description = [ Configuration Guide ] ]]
+${HOMEPAGE}#elvilist [[ lang = en description = [ Elvi List ] ]]
+"
+
