@@ -4,8 +4,8 @@
 require distutils [ python_dep=2.6 ]
 
 SUMMARY="Pythonic interface to the gpodder.net web services."
-HOMEPAGE="http://thpinfo.com/2010/mygpoclient/"
-DOWNLOADS="http://thpinfo.com/2010/${PN}/${PNV}.tar.gz"
+HOMEPAGE="http://thpinfo.com/2010/${PN}/"
+DOWNLOADS="${HOMEPAGE}/${PNV}.tar.gz"
 
 LICENCES="GPL-3"
 SLOT="0"
@@ -14,9 +14,10 @@ PLATFORMS="~amd64 ~x86"
 MYOPTIONS=""
 
 DEPENDENCIES="
-	build:
-		dev-python/setuptools
-	build+run:
-		dev-python/simplejson
+    build:
+        dev-python/setuptools
+    build+run:
+        dev-python/simplejson
 "
 BUGS_TO="netzdamon@gmail.com"
+
