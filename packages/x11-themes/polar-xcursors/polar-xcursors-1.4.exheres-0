@@ -10,19 +10,16 @@ LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
-MYOPTIONS=""
-
-DEPENDENCIES=""
-
 BUGS_TO="netzdamon@gmail.com"
 
 WORK="${WORKBASE}/PolarCursorTheme"
 
 src_install() {
-	dodir /usr/share/icons/PolarCursorTheme/cursors/
-	cp -R  ${WORKBASE}/PolarCursorTheme/cursors ${IMAGE}/usr/share/icons/PolarCursorTheme/ || die
-	dodir /usr/share/icons/PolarCursorTheme-Blue/cursors/
-	cp -R  ${WORKBASE}/PolarCursorTheme-Blue/cursors ${IMAGE}/usr/share/icons/PolarCursorTheme-Blue/ || die
-	dodir /usr/share/icons/PolarCursorTheme-Green/cursors/
-	cp -R ${WORKBASE}/PolarCursorTheme-Green/cursors ${IMAGE}/usr/share/icons/PolarCursorTheme-Green/ || die
+    dodir /usr/share/icons/PolarCursorTheme/cursors/
+    edo cp -R  ${WORKBASE}/PolarCursorTheme/cursors ${IMAGE}/usr/share/icons/PolarCursorTheme/
+    dodir /usr/share/icons/PolarCursorTheme-Blue/cursors/
+    edo cp -R  ${WORKBASE}/PolarCursorTheme-Blue/cursors ${IMAGE}/usr/share/icons/PolarCursorTheme-Blue/
+    dodir /usr/share/icons/PolarCursorTheme-Green/cursors/
+    edo cp -R ${WORKBASE}/PolarCursorTheme-Green/cursors ${IMAGE}/usr/share/icons/PolarCursorTheme-Green/
 }
+
