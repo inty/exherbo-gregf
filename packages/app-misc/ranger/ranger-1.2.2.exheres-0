@@ -1,0 +1,27 @@
+# Copyright 2010 Greg Fitzgerald 
+# Distributed under the terms of the GNU General Public License v2
+
+require python [ python_dep=2.6 ]
+
+SUMMARY="ranger is a free console file manager that gives you greater flexibility and a good
+overview of your files without having to leave your *nix console."
+HOMEPAGE="http://nongnu.org/ranger/"
+DOWNLOADS="http://download.savannah.gnu.org/releases/${PN}/releases/${PNV}.tar.gz"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    run:
+        sys-apps/less
+    suggestion:
+        net-www/elinks [[ description = [ Preview HTML files ] ]]
+        app-text/source-highlight [[ description = [ Color source code previews ] ]]
+        app-arch/atool [[ description = [ Used to extract archives ] ]]
+        app-text/poppler [[ description = [ PDF previews ] ]]
+"
+
+BUGS_TO="netzdamon@gmail.com"
+
