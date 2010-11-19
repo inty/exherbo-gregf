@@ -1,5 +1,7 @@
 # Copyright 2010 Greg Fitzgerald
 # Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'gpodder-2.9.ebuild' from Gentoo, which is:
+#     Copyright 1999-2010 Gentoo Foundation
 
 require distutils [ python_dep=2.5 ] gnome-2
 
@@ -36,7 +38,7 @@ DEPENDENCIES="
         mad? ( dev-python/pymad
                dev-python/eyeD3 )
         bluetooth? ( gnome-desktop/gnome-bluetooth )
-        mtp? ( dev-python/pymtp )
+        mtp? ( media-libs/libmtp[>=1.0.0] )
         ogg? ( media-sound/vorbis-tools )
         gnome-bindings/gnome-python-extras[gtkhtml]
         dev-python/mygpoclient[>=1.4]
@@ -64,3 +66,4 @@ pkg_postinst() {
 pkg_postrm() {
     gnome_exlib_update_icon_cache
 }
+
