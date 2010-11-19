@@ -1,7 +1,7 @@
 # Copyright 2010 Greg Fitzgerald
 # Distributed under the terms of the GNU General Public License v2
 
-require distutils
+require distutils [ python_dep=2.5 ]
 
 SUMMARY="Python wrapper for libmad MP3 decoding in python"
 HOMEPAGE="http://www.spacepants.org/src/${PN}/"
